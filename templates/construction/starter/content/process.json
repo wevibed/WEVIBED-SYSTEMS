@@ -1,0 +1,9 @@
+{
+  "heading": "From first call to handover",
+  "steps": [
+    { "title": "Tell us your plans", "text": "Send photos, plans or a description. We ask the right questions." },
+    { "title": "Site visit & quote", "text": "We inspect the site and send a clear written quote." },
+    { "title": "We build", "text": "Work starts on the agreed date, with regular updates." },
+    { "title": "Handover", "text": "We walk you through the finished work and fix anything outstanding." }
+  ]
+}

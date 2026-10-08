@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "status": "demo",
+  "template": "retail",
+  "business": {
+    "name": "Sample Boutique",
+    "tagline": "Everyday style, carefully chosen",
+    "description": "Browse hand-picked clothing and accessories, check sizes and availability, and order on WhatsApp. Visit our shop in Harare.",
+    "schemaType": "ClothingStore"
+  },
+  "contact": {
+    "whatsapp": "263770000000",
+    "phoneDisplay": "077 000 0000",
+    "email": "hello@sample-boutique.example.com",
+    "address": { "line1": "Shop 1, Sample Centre", "city": "Harare", "country": "Zimbabwe" },
+    "hours": [
+      { "days": "Monday – Friday", "time": "08:30 – 17:00" },
+      { "days": "Saturday", "time": "08:30 – 14:00" }
+    ]
+  },
+  "social": {},
+  "brand": {
+    "logo": "/logo.svg",
+    "colors": { "primary": "#1c1917", "accent": "#b4536a", "background": "#faf7f2", "foreground": "#1c1917" },
+    "fonts": { "heading": "Playfair Display", "body": "Inter", "headingSerif": true },
+    "radius": "0.375rem"
+  },
+  "hero": {
+    "image": "/hero.svg",
+    "imageAlt": "A display of sample clothing and accessories",
+    "eyebrow": "New season",
+    "headline": "Style that fits your day",
+    "subheadline": "Hand-picked pieces at honest prices. Message us on WhatsApp to check sizes and availability.",
+    "ctaLabel": "Shop now",
+    "ctaTo": "/shop"
+  },
+  "features": { "cart": true, "search": true, "whatsappFloat": true },
+  "seo": { "domain": "sample-retail.example.com", "ogImage": "/og.png", "locality": "Harare" },
+  "forms": { "mode": "whatsapp" },
+  "currency": { "code": "USD", "symbol": "$" },
+  "deploy": { "cloudflareProject": "starter-retail" }
+}

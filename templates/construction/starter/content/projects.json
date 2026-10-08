@@ -1,0 +1,12 @@
+{
+  "categories": ["Completed homes", "In progress", "Structural work"],
+  "items": [
+    { "id": "sample-project-1", "title": "Sample project 1", "category": "Completed homes", "image": "/projects/sample-1.svg", "alt": "Placeholder photo of a completed home", "location": "Harare", "year": 2025, "placeholder": true },
+    { "id": "sample-project-2", "title": "Sample project 2", "category": "Completed homes", "image": "/projects/sample-2.svg", "alt": "Placeholder photo of a completed home", "location": "Harare", "year": 2025, "placeholder": true },
+    { "id": "sample-project-3", "title": "Sample project 3", "category": "In progress", "image": "/projects/sample-3.svg", "alt": "Placeholder photo of a building site", "location": "Chitungwiza", "year": 2026, "placeholder": true },
+    { "id": "sample-project-4", "title": "Sample project 4", "category": "In progress", "image": "/projects/sample-4.svg", "alt": "Placeholder photo of a building site", "location": "Harare", "year": 2026, "placeholder": true },
+    { "id": "sample-project-5", "title": "Sample project 5", "category": "Structural work", "image": "/projects/sample-5.svg", "alt": "Placeholder photo of structural work", "location": "Norton", "year": 2024, "placeholder": true },
+    { "id": "sample-project-6", "title": "Sample project 6", "category": "Completed homes", "image": "/projects/sample-6.svg", "alt": "Placeholder photo of a completed home", "location": "Ruwa", "year": 2024, "placeholder": true },
+    { "id": "sample-project-7", "title": "Sample project 7", "category": "Structural work", "image": "/projects/sample-7.svg", "alt": "Placeholder photo of structural work", "location": "Harare", "year": 2025, "placeholder": true }
+  ]
+}

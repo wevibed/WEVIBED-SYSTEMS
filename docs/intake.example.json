@@ -1,0 +1,21 @@
+{
+  "business": {
+    "tagline": "Quality hardware for every project",
+    "description": "Building materials, electrical products and tools in Harare. Browse prices online and order on WhatsApp."
+  },
+  "contact": {
+    "email": "info@example-client.co.zw",
+    "address": { "line1": "12 Example Road", "city": "Harare", "country": "Zimbabwe" },
+    "mapsUrl": "https://maps.app.goo.gl/replace-with-real-link",
+    "hours": [{ "days": "Mon – Sat", "time": "08:00 – 17:00" }]
+  },
+  "social": { "facebook": "https://www.facebook.com/replace-with-real-page" },
+  "brand": {
+    "colors": { "primary": "#111418", "accent": "#f97316" },
+    "fonts": { "heading": "Barlow Condensed", "body": "Inter" }
+  },
+  "hero": {
+    "headline": "Everything for your next project",
+    "subheadline": "Building, electrical, tools and solar, with prices you can see before you visit."
+  }
+}

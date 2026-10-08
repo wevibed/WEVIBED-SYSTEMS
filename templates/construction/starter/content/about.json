@@ -1,0 +1,15 @@
+{
+  "heading": "Practical builders you can rely on",
+  "paragraphs": [
+    "Sample text: describe the company, how long it has been building and the kind of projects it does best.",
+    "Sample text: explain how the team works with clients, from the first site visit to handover."
+  ],
+  "highlights": [
+    { "title": "Quality workmanship", "text": "Sample text: say how work is supervised and checked." },
+    { "title": "Clear quotes", "text": "Sample text: explain how quotes are prepared and what they include." },
+    { "title": "On time, on budget", "text": "Sample text: describe how timelines and costs are managed." }
+  ],
+  "image": "/about.svg",
+  "imageAlt": "The team on site",
+  "placeholder": true
+}

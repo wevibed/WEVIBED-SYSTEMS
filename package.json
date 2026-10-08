@@ -1,0 +1,44 @@
+{
+  "name": "wevibed-system",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "WeVibed website delivery system: shared packages, industry templates, client folders, tooling.",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "node tools/dev.mjs",
+    "new-client": "node tools/new-client.mjs",
+    "check": "node tools/check.mjs --all",
+    "check:imports": "node tools/check-imports.mjs",
+    "test": "node --test",
+    "lint": "eslint .",
+    "build": "node tools/build.mjs --all",
+    "verify": "npm run check && npm run check:imports && npm test && npm run lint && npm run build",
+    "verify-live": "node tools/verify-live.mjs",
+    "timing": "node tools/timing.mjs",
+    "placeholders": "node tools/make-placeholders.mjs"
+  },
+  "dependencies": {
+    "lucide-react": "^0.475.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.26.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.19.0",
+    "@vitejs/plugin-react": "^6.0.5",
+    "autoprefixer": "^10.4.20",
+    "eslint": "^9.19.0",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "globals": "^15.14.0",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^3.4.17",
+    "vite": "^8.2.0"
+  },
+  "overrides": {
+    "jiti": "1.21.7"
+  }
+}

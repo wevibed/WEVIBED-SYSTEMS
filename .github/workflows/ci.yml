@@ -1,0 +1,112 @@
+name: CI
+
+# Source of truth for "does it work": install, content checks, import check, unit tests, lint, and a
+# production build of every client and every template starter. Nothing is considered verified until
+# this workflow is green.
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      # No `cache: npm` yet: setup-node fails when there is no package-lock.json.
+      # Add `cache: npm` here once the lockfile from the first run has been committed.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        id: install
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            echo "::warning::package-lock.json is not committed. Using npm install. Download the 'package-lock' artifact from this run and commit it so builds are reproducible."
+            npm install
+          fi
+
+      # Each step continues on error so one run reports every failure; the final step fails the job.
+      - name: Config and content checks
+        id: check
+        continue-on-error: true
+        run: npm run check
+
+      - name: Import check
+        id: imports
+        continue-on-error: true
+        run: npm run check:imports
+
+      - name: Unit tests
+        id: test
+        continue-on-error: true
+        run: npm test
+
+      - name: Lint
+        id: lint
+        continue-on-error: true
+        run: npm run lint
+
+      - name: Production build of every client and starter
+        id: build
+        continue-on-error: true
+        run: npm run build
+
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "### Verification results"
+            echo ""
+            echo "| Step | Result |"
+            echo "|---|---|"
+            echo "| Install | ${{ steps.install.outcome }} |"
+            echo "| Config and content checks | ${{ steps.check.outcome }} |"
+            echo "| Import check | ${{ steps.imports.outcome }} |"
+            echo "| Unit tests | ${{ steps.test.outcome }} |"
+            echo "| Lint | ${{ steps.lint.outcome }} |"
+            echo "| Production builds | ${{ steps.build.outcome }} |"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload lockfile
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: package-lock
+          path: package-lock.json
+          if-no-files-found: ignore
+          retention-days: 14
+
+      - name: Upload build output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-output
+          path: dist/
+          if-no-files-found: ignore
+          retention-days: 7
+
+      - name: Gate
+        if: always()
+        run: |
+          fail=0
+          for outcome in "${{ steps.install.outcome }}" "${{ steps.check.outcome }}" "${{ steps.imports.outcome }}" "${{ steps.test.outcome }}" "${{ steps.lint.outcome }}" "${{ steps.build.outcome }}"; do
+            if [ "$outcome" != "success" ]; then fail=1; fi
+          done
+          if [ "$fail" -ne 0 ]; then
+            echo "::error::One or more verification steps failed. See the summary table above."
+            exit 1
+          fi

@@ -1,0 +1,14 @@
+{
+  "name": "construction",
+  "label": "Construction & building",
+  "description": "Contractors, builders, roofing and property developers. Full-bleed hero, service cards, filterable project gallery with lightbox, process steps and a quotation request form.",
+  "routes": ["/", "/projects", "/about", "/contact"],
+  "dynamicRoutes": [],
+  "defaultNav": [
+    { "label": "Home", "to": "/" },
+    { "label": "Our work", "to": "/projects" },
+    { "label": "About", "to": "/about" },
+    { "label": "Get a quote", "to": "/contact" }
+  ],
+  "content": { "required": ["services", "projects", "about", "process"], "optional": ["testimonials"] }
+}

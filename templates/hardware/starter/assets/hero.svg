@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-label="Placeholder image" data-wv-placeholder="true">
+  <rect width="100%" height="100%" fill="#e2e3e3"/>
+  <path d="M0 0L1600 900M1600 0L0 900" stroke="#111418" stroke-opacity="0.12" stroke-width="2"/>
+  <text x="50%" y="47%" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="64" font-weight="700" letter-spacing="4" fill="#111418" fill-opacity="0.65">PLACEHOLDER</text>
+  <text x="50%" y="54%" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="29" fill="#111418" fill-opacity="0.55">/hero.svg</text>
+</svg>

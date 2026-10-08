@@ -1,0 +1,13 @@
+{
+  "name": "hardware",
+  "label": "Hardware & industrial supplies",
+  "description": "Hardware stores, building materials, electrical, tools and solar. Dense catalogue with search, category filters and a cart that sends the full order to WhatsApp (a flow proven on a live hardware-store site).",
+  "routes": ["/", "/products", "/contact"],
+  "dynamicRoutes": [],
+  "defaultNav": [
+    { "label": "Home", "to": "/" },
+    { "label": "Products", "to": "/products" },
+    { "label": "Contact", "to": "/contact" }
+  ],
+  "content": { "required": ["products"], "optional": ["process"] }
+}

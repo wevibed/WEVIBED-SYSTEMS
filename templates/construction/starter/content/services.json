@@ -1,0 +1,7 @@
+{
+  "items": [
+    { "id": "construction", "title": "Construction", "description": "Residential and commercial building work shaped around the requirements of each project.", "image": "/services/construction.svg", "imageAlt": "A house under construction", "placeholder": true },
+    { "id": "roofing", "title": "Roofing", "description": "New roofs, repairs and re-roofing, from structure through to the finished roof.", "image": "/services/roofing.svg", "imageAlt": "A roof being fitted", "placeholder": true },
+    { "id": "renovations", "title": "Renovations", "description": "Extensions, refurbishments and finishing work to improve an existing property.", "image": "/services/renovations.svg", "imageAlt": "A renovated living space", "placeholder": true }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "status": "demo",
+  "template": "hardware",
+  "business": {
+    "name": "Sample Hardware & Supplies",
+    "shortName": "Sample Hardware",
+    "tagline": "Building, electrical, tools and solar",
+    "description": "Building materials, electrical products, power tools and solar equipment. Browse prices online and send your order on WhatsApp.",
+    "schemaType": "HardwareStore"
+  },
+  "contact": {
+    "whatsapp": "263770000000",
+    "phoneDisplay": "077 000 0000",
+    "address": { "line1": "12 Sample Road", "city": "Harare", "country": "Zimbabwe" },
+    "hours": [
+      { "days": "Monday – Friday", "time": "07:30 – 17:00" },
+      { "days": "Saturday", "time": "08:00 – 13:00" }
+    ]
+  },
+  "social": {},
+  "brand": {
+    "logo": "/logo.svg",
+    "colors": { "primary": "#111418", "accent": "#f97316", "background": "#f4f4f2", "foreground": "#111418" },
+    "fonts": { "heading": "Barlow Condensed", "body": "Inter" },
+    "radius": "0rem"
+  },
+  "hero": {
+    "image": "/hero.svg",
+    "imageAlt": "Tools and building materials",
+    "eyebrow": "Hardware · Building · Electrical · Solar",
+    "headline": "Everything for your projects",
+    "subheadline": "Building materials, electrical products, power tools and solar. Browse the catalogue, add to cart and send your order on WhatsApp.",
+    "ctaLabel": "Browse products",
+    "ctaTo": "/products"
+  },
+  "features": { "cart": true, "search": true, "whatsappFloat": true },
+  "seo": { "domain": "sample-hardware.example.com", "ogImage": "/og.png", "locality": "Harare" },
+  "forms": { "mode": "whatsapp" },
+  "currency": { "code": "USD", "symbol": "$" },
+  "deploy": { "cloudflareProject": "starter-hardware" }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "retail",
+  "label": "Retail & product catalogue",
+  "description": "Boutiques, clothing, cosmetics, electronics, furniture and general retail. Product grid with categories, search, product detail pages with sizes, WhatsApp enquiries and an optional cart.",
+  "routes": ["/", "/shop", "/product/:id", "/about", "/contact"],
+  "dynamicRoutes": [{ "pattern": "/product/:id", "content": "products", "list": "items", "param": "id" }],
+  "defaultNav": [
+    { "label": "Home", "to": "/" },
+    { "label": "Shop", "to": "/shop" },
+    { "label": "About", "to": "/about" },
+    { "label": "Contact", "to": "/contact" }
+  ],
+  "content": { "required": ["products", "about"], "optional": ["testimonials"] }
+}

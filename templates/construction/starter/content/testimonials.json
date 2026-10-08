@@ -1,0 +1,7 @@
+{
+  "items": [
+    { "name": "Sample Client", "text": "Sample testimonial: replace with a real quote from a real client, with their permission.", "placeholder": true },
+    { "name": "Another Client", "text": "Sample testimonial: replace with a real quote. Never publish invented reviews as genuine.", "placeholder": true },
+    { "name": "Third Client", "text": "Sample testimonial: delete this file if the client has no reviews yet.", "placeholder": true }
+  ]
+}

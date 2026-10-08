@@ -1,0 +1,109 @@
+{
+  "categories": ["Women", "Men", "Accessories"],
+  "items": [
+    {
+      "id": "sample-linen-dress",
+      "name": "Sample Linen Dress",
+      "category": "Women",
+      "price": 28,
+      "description": "Sample product. Replace with the real product description, fabric and fit notes.",
+      "image": "/products/sample-1.svg",
+      "images": ["/products/sample-1b.svg", "/products/sample-1c.svg"],
+      "sizes": ["S", "M", "L"],
+      "availability": "in_stock",
+      "badges": ["new", "featured"],
+      "keywords": "dress summer linen",
+      "placeholder": true
+    },
+    {
+      "id": "sample-wrap-top",
+      "name": "Sample Wrap Top",
+      "category": "Women",
+      "price": 15,
+      "description": "Sample product. Replace with the real product description.",
+      "image": "/products/sample-2.svg",
+      "sizes": ["S", "M", "L"],
+      "availability": "in_stock",
+      "placeholder": true
+    },
+    {
+      "id": "sample-denim-jacket",
+      "name": "Sample Denim Jacket",
+      "category": "Women",
+      "price": 35,
+      "description": "Sample product. Replace with the real product description.",
+      "image": "/products/sample-3.svg",
+      "sizes": ["S", "M", "L", "XL"],
+      "availability": "low_stock",
+      "badges": ["featured"],
+      "placeholder": true
+    },
+    {
+      "id": "sample-chino-trousers",
+      "name": "Sample Chino Trousers",
+      "category": "Men",
+      "price": 24,
+      "description": "Sample product. Replace with the real product description.",
+      "image": "/products/sample-4.svg",
+      "sizes": ["30", "32", "34", "36"],
+      "availability": "in_stock",
+      "placeholder": true
+    },
+    {
+      "id": "sample-polo-shirt",
+      "name": "Sample Polo Shirt",
+      "category": "Men",
+      "price": 14,
+      "description": "Sample product. Replace with the real product description.",
+      "image": "/products/sample-5.svg",
+      "sizes": ["M", "L", "XL"],
+      "availability": "in_stock",
+      "badges": ["new"],
+      "placeholder": true
+    },
+    {
+      "id": "sample-canvas-sneaker",
+      "name": "Sample Canvas Sneaker",
+      "category": "Men",
+      "price": 30,
+      "description": "Sample product. Replace with the real product description.",
+      "image": "/products/sample-6.svg",
+      "sizes": ["40", "41", "42", "43"],
+      "availability": "in_stock",
+      "badges": ["featured"],
+      "placeholder": true
+    },
+    {
+      "id": "sample-tote-bag",
+      "name": "Sample Tote Bag",
+      "category": "Accessories",
+      "price": 18,
+      "description": "Sample product. Replace with the real product description.",
+      "image": "/products/sample-7.svg",
+      "availability": "in_stock",
+      "badges": ["featured"],
+      "placeholder": true
+    },
+    {
+      "id": "sample-silk-scarf",
+      "name": "Sample Silk Scarf",
+      "category": "Accessories",
+      "price": null,
+      "priceLabel": "Ask for price",
+      "description": "Sample product shown without a price: use priceLabel for items that are quoted on request.",
+      "image": "/products/sample-8.svg",
+      "availability": "enquire",
+      "placeholder": true
+    },
+    {
+      "id": "sample-leather-belt",
+      "name": "Sample Leather Belt",
+      "category": "Accessories",
+      "price": 12,
+      "description": "Sample product showing the sold-out state.",
+      "image": "/products/sample-9.svg",
+      "availability": "sold_out",
+      "placeholder": true
+    }
+  ]
+}

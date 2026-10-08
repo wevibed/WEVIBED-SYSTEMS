@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "status": "demo",
+  "template": "construction",
+  "business": {
+    "name": "Sample Builders",
+    "tagline": "Construction and roofing, done properly",
+    "description": "Residential construction, roofing and renovations delivered with careful workmanship. Browse our projects and request a quote on WhatsApp.",
+    "schemaType": "GeneralContractor"
+  },
+  "contact": {
+    "whatsapp": "263770000000",
+    "phoneDisplay": "077 000 0000",
+    "email": "info@sample-builders.example.com",
+    "address": { "line1": "5 Sample Avenue", "city": "Harare", "country": "Zimbabwe" },
+    "hours": [
+      { "days": "Monday – Friday", "time": "07:30 – 17:00" },
+      { "days": "Saturday", "time": "08:00 – 13:00" }
+    ]
+  },
+  "social": {},
+  "brand": {
+    "logo": "/logo.svg",
+    "colors": { "primary": "#0f1214", "accent": "#c9a15a", "background": "#f5f4ef", "foreground": "#16191c" },
+    "fonts": { "heading": "Manrope", "body": "Inter" },
+    "radius": "0.125rem"
+  },
+  "hero": {
+    "image": "/hero.svg",
+    "imageAlt": "A completed house with a tiled roof",
+    "eyebrow": "Construction · Roofing",
+    "headline": "We build it right.",
+    "subheadline": "Construction and roofing delivered with practical execution, careful workmanship and a focus on the finished result.",
+    "ctaLabel": "Request a quote",
+    "ctaTo": "/contact"
+  },
+  "features": { "quoteForm": true, "whatsappFloat": true },
+  "seo": { "domain": "sample-builders.example.com", "ogImage": "/og.png", "locality": "Harare" },
+  "forms": { "mode": "whatsapp" },
+  "currency": { "code": "USD", "symbol": "$" },
+  "deploy": { "cloudflareProject": "starter-construction" }
+}

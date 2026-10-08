@@ -1,0 +1,121 @@
+name: Deploy client
+
+# Manual, approval-gated deploy of ONE client (or a template starter) to Cloudflare Pages.
+# One-time setup, in the GitHub repository:
+#   Settings -> Environments -> "production": add required reviewers (this is the approval gate)
+#   and add the secrets CLOUDFLARE_API_TOKEN (scope: Cloudflare Pages: Edit) and CLOUDFLARE_ACCOUNT_ID.
+# Nothing here runs automatically, and it never touches any existing Pages project unless you
+# enter that project's name as the client's deploy.cloudflareProject.
+
+on:
+  workflow_dispatch:
+    inputs:
+      client:
+        description: "Folder name under clients/ (or starter-<template>, e.g. starter-retail)"
+        required: true
+        type: string
+      branch:
+        description: "Cloudflare branch. main = production URL, any other name = preview URL"
+        required: true
+        default: "main"
+        type: string
+      url:
+        description: "URL to verify after deploy (default https://<project>.pages.dev; required for preview branches)"
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    timeout-minutes: 25
+    env:
+      CLIENT: ${{ inputs.client }}
+      BRANCH: ${{ inputs.branch }}
+      VERIFY_URL: ${{ inputs.url }}
+    steps:
+      - name: Validate inputs
+        run: |
+          [[ "$CLIENT" =~ ^[a-z0-9]+(-[a-z0-9]+)*$ ]] || { echo "::error::client must be lowercase letters, numbers and hyphens"; exit 1; }
+          [[ "$BRANCH" =~ ^[A-Za-z0-9._-]+$ ]] || { echo "::error::branch contains invalid characters"; exit 1; }
+
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: |
+          if [ -f package-lock.json ]; then npm ci; else npm install; fi
+
+      - name: Select target
+        id: target
+        run: |
+          if [[ "$CLIENT" == starter-* ]]; then
+            echo "flag=--starter ${CLIENT#starter-}" >> "$GITHUB_OUTPUT"
+          else
+            echo "flag=--client $CLIENT" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Quality checks
+        run: node tools/check.mjs ${{ steps.target.outputs.flag }}
+
+      - name: Unit tests
+        run: npm test
+
+      - name: Build
+        run: node tools/build.mjs ${{ steps.target.outputs.flag }}
+
+      - name: Read Cloudflare project name
+        id: meta
+        run: |
+          node -e '
+            const fs = require("fs");
+            const dir = process.env.CLIENT.startsWith("starter-")
+              ? `templates/${process.env.CLIENT.slice(8)}/starter`
+              : `clients/${process.env.CLIENT}`;
+            const c = JSON.parse(fs.readFileSync(`${dir}/client.config.json`, "utf8"));
+            fs.appendFileSync(process.env.GITHUB_OUTPUT, `project=${c.deploy.cloudflareProject}\nstatus=${c.status}\n`);
+          '
+
+      # Fails harmlessly when the project already exists; any other failure surfaces in the deploy step.
+      - name: Create Pages project if missing
+        continue-on-error: true
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages project create ${{ steps.meta.outputs.project }} --production-branch=main
+
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist/${{ inputs.client }} --project-name=${{ steps.meta.outputs.project }} --branch=${{ inputs.branch }}
+
+      - name: Verify the live site
+        run: |
+          url="$VERIFY_URL"
+          if [ -z "$url" ] && [ "$BRANCH" = "main" ]; then url="https://${{ steps.meta.outputs.project }}.pages.dev"; fi
+          if [ -z "$url" ]; then
+            echo "::notice::Preview branch deployed; pass the preview URL in the 'url' input to run live checks."
+            exit 0
+          fi
+          sleep 20
+          node tools/verify-live.mjs ${{ steps.target.outputs.flag }} --url "$url"
+
+      - name: Reminder
+        run: |
+          {
+            echo "### Deployed ${CLIENT}"
+            echo ""
+            echo "Cloudflare project: \`${{ steps.meta.outputs.project }}\`, status in config: \`${{ steps.meta.outputs.status }}\`."
+            echo ""
+            echo "Record the milestone locally: \`npm run timing -- mark ${CLIENT} deployed\`."
+            echo "Custom domain and DNS are still a manual step in Cloudflare; then run \`npm run verify-live -- --client ${CLIENT}\`."
+          } >> "$GITHUB_STEP_SUMMARY"

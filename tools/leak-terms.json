@@ -1,0 +1,21 @@
+{
+  "_about": "Business names of existing WeVibed clients. `check` fails if one of these appears in another client's config/content, a starter, or the shared template/package source. This is how copy-paste leftovers (e.g. a baby-care site titled 'Sassy Lady Shoes') are caught before the client sees them. Add a name here whenever a new client is created.",
+  "terms": [
+    "sassy lady",
+    "macrowan",
+    "ngenaz",
+    "nyarie",
+    "cenacle",
+    "krafted",
+    "tiffany",
+    "giovanni",
+    "kays durawalls",
+    "luxjewel",
+    "mr kicks",
+    "simply yarn",
+    "avalanche collections",
+    "prime hide",
+    "social blue",
+    "quality formal"
+  ]
+}

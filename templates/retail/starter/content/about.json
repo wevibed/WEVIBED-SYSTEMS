@@ -1,0 +1,15 @@
+{
+  "heading": "A shop built around you",
+  "paragraphs": [
+    "Sample text: tell the story of the business here. Who started it, what it sells, and why customers keep coming back.",
+    "Sample text: mention where the shop is, how long it has been trading and what makes the range different."
+  ],
+  "highlights": [
+    { "title": "Honest prices", "text": "Sample text: say how prices are set and what customers can expect." },
+    { "title": "Easy ordering", "text": "Sample text: explain that customers can order or ask questions on WhatsApp." },
+    { "title": "Local service", "text": "Sample text: describe collection, delivery or in-store service." }
+  ],
+  "image": "/about.svg",
+  "imageAlt": "Inside the shop",
+  "placeholder": true
+}

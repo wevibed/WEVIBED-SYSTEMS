@@ -1,0 +1,8 @@
+{
+  "heading": "Browse. Add. Message.",
+  "steps": [
+    { "title": "Find products", "text": "Search the catalogue or filter by category." },
+    { "title": "Add to cart", "text": "Choose quantities and review your estimated total." },
+    { "title": "Message us", "text": "Your order opens in WhatsApp ready to send. We confirm stock and how to pay or collect." }
+  ]
+}
